@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='bu'>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.quilljs.com/1.2.6/quill.snow.css" rel="stylesheet">
+    <link href='./styles.css' rel='stylesheet' />
+    <!-- <link href='./assets/styles/main.scss' /> -->
+  </head>
+  <body ng-controller='mainCtrl'>
+
+    <main>
+
+      <ui-view></ui-view>
+
+    </main>
+
+    <!-- {{test}} -->
+
+    <script src="https://cdn.quilljs.com/1.2.6/quill.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js'></script>
+    <script src='./js/bundle.js'></script>
+  </body>
+</html>

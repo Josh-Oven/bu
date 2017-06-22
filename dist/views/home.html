@@ -1,0 +1,113 @@
+<section class='top-section-container'>
+
+  <section class='main-section'>
+
+    <!-- Create toolbar container -->
+<div id="toolbar" ng-show='mainIf == false'>
+  <!-- Add font size dropdown -->
+  <select class="ql-size tool-bar-color">
+    <option value="small"></option>
+    <!-- Note a missing, thus falsy value, is used to reset to default -->
+    <option selected></option>
+    <option value="large"></option>
+    <option value="huge"></option>
+  </select>
+  <!-- Add a bold button -->
+  <button class="ql-bold tool-bar-color"></button>
+  <button class="ql-italic tool-bar-color"></button>
+  <button class="ql-underline tool-bar-color"></button>
+  <!-- Add subscript and superscript buttons -->
+  <button class="ql-script tool-bar-color" value="sub"></button>
+  <button class="ql-script tool-bar-color" value="super"></button>
+</div>
+
+    <div ng-show='mainIf == false' id="editor" ng-controller='quillCtrl'>
+      <p>Hello World!</p>
+      <p>Some initial <strong>bold</strong> text</p>
+      <p><br></p>
+    </div>
+
+    <script>
+    var quill = new Quill('#editor', {
+      theme: 'snow',
+      modules: {
+        toolbar: '#toolbar'
+      }
+    });
+
+    quill.on('text-change', update);
+      var container = document.querySelector('.tool-section');
+      update();
+
+    function update(delta) {
+    var contents = quill.getContents();
+    console.log('contents', contents);
+    var html = "contents = " + JSON.stringify(contents, null, 2);
+    if (delta) {
+      console.log('change', delta)
+      html = "change = " + JSON.stringify(delta, null, 2) + "\n\n" + html;
+    }
+    container.innerHTML = html;
+    // hljs.highlightBlock(container);
+    console.log('end content?', contents)
+  }
+
+    </script>
+
+    <div class='text-container' ng-repeat='data in blogData | limitTo : 1' ng-show='mainIf == true'>
+
+      <h2 class='text-title'>Test test test test</h2>
+
+      <h3 class='text-author'>test tester</h3>
+
+      <p class='text'>{{data.blog.text}}</p>
+
+    </div>
+
+  </section>
+
+<section class='nav-bar-section'>
+
+<div class='nav-bar'>
+
+  <div class='top-shadow'></div>
+
+  <a ui-sref="read({ title : data.blog.title })">
+
+  <div class='navbar-thumb' ng-repeat='data in blogData'>
+
+    <img class='thumb-image' ng-src='{{data.blog.image}}' />
+
+  </div>
+
+  </a>
+
+<div class='bottom-shadow'></div>
+
+</div>
+
+<div class='read-or-write'>
+
+  <button class='read-button' ng-click='mainIf = !mainIf' ng-style='readColor' ng-disabled='mainIf'>
+
+    <p>Read</p>
+
+  </button>
+
+  <button class='write-button' ng-click='mainIf = !mainIf' ng-disabled='!mainIf'>
+
+    <p>Write</p>
+
+  </button>
+
+</div>
+
+</section>
+
+<section class='tool-section' ng-model='deltaData'>
+
+  {{deltaData}}
+
+</section>
+
+</section>

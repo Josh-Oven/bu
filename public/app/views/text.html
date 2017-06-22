@@ -1,0 +1,35 @@
+<section class='main-section text-section'>
+
+  <div class='text-container' ng-repeat='item in blogItem'>
+
+    <h2 class='text-title'>{{item.blog.title}}</h2>
+
+    <h3 class='text-author'>{{item.blog.author}}</h3>
+
+    <p class='text'>{{item.blog.text}}</p>
+
+  </div>
+
+</section>
+
+<section class='nav-bar-section'>
+
+  <div class='top-shadow'></div>
+
+  <a ui-sref="blog({ title: data.blog.title })">
+    <div class='navbar-thumb' ng-repeat='data in blogData'>
+
+    <img class='thumb-image' ng-src='{{data.blog.image}}' />
+
+  </div>
+</a>
+
+<div class='bottom-shadow'></div>
+
+</section>
+
+<section class='tool-section'>
+
+
+
+</section>
