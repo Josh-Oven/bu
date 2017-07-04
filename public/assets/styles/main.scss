@@ -54,6 +54,24 @@ main {
   background-color: #333333;
   border: none;
 
+  .quill-submit {
+    float: right;
+    height: 30px;
+    width: 80px;
+    border: 1px solid black;
+    background: black;
+    // margin-right: 30px;
+
+    p {
+      font-family: 'Roboto';
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: $roboto-spacing;
+      margin: auto;
+    }
+  }
+
   .ql-picker-options {
     background: #333333;
   }

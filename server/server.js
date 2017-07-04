@@ -8,15 +8,15 @@ app.use(express.static('dist'))
 
 app.use(bodyParser.json())
 
-let massiveInstance = massive.connectSync({connectionString : connectionString})
-
-app.set('db', massiveInstance);
-
-var db = app.get('db');
+massive(connectionString).then(instance => {
+  app.set('db', instance);
+})
 
 const data = require('./mainCtrl')
 
+app.get('/getAllBlogs', data.getAllBlogs)
 
+app.post('/postBlogText', data.postBlogText)
 
 let port = 5000;
 

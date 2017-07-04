@@ -1,0 +1,9 @@
+// insert into authors //
+
+insert into authors ("id", "author")
+values ('', '')
+
+// insert into blogs //
+
+insert into blogs ("id", "author", "title", "description", "text", "image")
+values('', '', '', '', '', '')

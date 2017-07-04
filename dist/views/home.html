@@ -3,29 +3,31 @@
   <section class='main-section'>
 
     <!-- Create toolbar container -->
-<div id="toolbar" ng-show='mainIf == false'>
-  <!-- Add font size dropdown -->
+<div id="toolbar" ng-show='mainIf == false' ng-controller='quillCtrl'>
+
   <select class="ql-size tool-bar-color">
     <option value="small"></option>
-    <!-- Note a missing, thus falsy value, is used to reset to default -->
     <option selected></option>
     <option value="large"></option>
     <option value="huge"></option>
   </select>
-  <!-- Add a bold button -->
+
   <button class="ql-bold tool-bar-color"></button>
   <button class="ql-italic tool-bar-color"></button>
   <button class="ql-underline tool-bar-color"></button>
-  <!-- Add subscript and superscript buttons -->
   <button class="ql-script tool-bar-color" value="sub"></button>
   <button class="ql-script tool-bar-color" value="super"></button>
+
+  <button class='quill-submit' ng-click='submit()'><p>Submit!</p></button>
+
 </div>
 
-    <div ng-show='mainIf == false' id="editor" ng-controller='quillCtrl'>
-      <p>Hello World!</p>
-      <p>Some initial <strong>bold</strong> text</p>
-      <p><br></p>
+    <div id="editor" ng-model='message' ng-show='mainIf == false' ng-controller='quillCtrl'>
+
+
     </div>
+
+    {{message}}
 
     <script>
     var quill = new Quill('#editor', {
@@ -39,26 +41,35 @@
       var container = document.querySelector('.tool-section');
       update();
 
-    function update(delta) {
-    var contents = quill.getContents();
-    console.log('contents', contents);
-    var html = "contents = " + JSON.stringify(contents, null, 2);
-    if (delta) {
-      console.log('change', delta)
-      html = "change = " + JSON.stringify(delta, null, 2) + "\n\n" + html;
-    }
-    container.innerHTML = html;
-    // hljs.highlightBlock(container);
-    console.log('end content?', contents)
+      function update(delta) {
+        var contents = quill.getContents();
+
+        // console.log('contents', contents);
+
+        var html = JSON.stringify(contents, null,   2);
+
+        if (delta) {
+          // console.log('change', delta)
+          html = JSON.stringify(delta, null, 2) +   "\n\n" + html;
+        }
+
+
+        // container.innerHTML = html;
+        // console.log('quill html: ', html)
+        // hljs.highlightBlock(container);
+        // console.log('end content?', contents)
+
+        console.log(quill.container.firstChild.innerHTML)
+
   }
 
     </script>
 
     <div class='text-container' ng-repeat='data in blogData | limitTo : 1' ng-show='mainIf == true'>
 
-      <h2 class='text-title'>Test test test test</h2>
+      <h2 class='text-title'>{{data.blog.title}}</h2>
 
-      <h3 class='text-author'>test tester</h3>
+      <h3 class='text-author'>{{data.blog.author}}</h3>
 
       <p class='text'>{{data.blog.text}}</p>
 
@@ -74,9 +85,9 @@
 
   <a ui-sref="read({ title : data.blog.title })">
 
-  <div class='navbar-thumb' ng-repeat='data in blogData'>
+  <div class='navbar-thumb' ng-repeat='data in allBlogs'>
 
-    <img class='thumb-image' ng-src='{{data.blog.image}}' />
+    <img class='thumb-image' ng-src='{{data.image}}' />
 
   </div>
 
@@ -106,7 +117,7 @@
 
 <section class='tool-section' ng-model='deltaData'>
 
-  {{deltaData}}
+  {{deltaData.ops}}
 
 </section>
 

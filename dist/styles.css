@@ -36,6 +36,19 @@ main {
 #toolbar {
   background-color: #333333;
   border: none; }
+  #toolbar .quill-submit {
+    float: right;
+    height: 30px;
+    width: 80px;
+    border: 1px solid black;
+    background: black; }
+    #toolbar .quill-submit p {
+      font-family: 'Roboto';
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin: auto; }
   #toolbar .ql-picker-options {
     background: #333333; }
   #toolbar .tool-bar-color {

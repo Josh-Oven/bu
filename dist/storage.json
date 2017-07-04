@@ -3,8 +3,8 @@
 {
   "blog": {
     "image": "./assets/images/blog/bakeoff/download-1.jpg",
-    "title": "hello",
-    "author": "balls",
+    "title": "title",
+    "author": "author",
     "text": "Vexillologist lo-fi helvetica, godard tattooed man bun semiotics gentrify fingerstache ennui. Wolf bespoke master cleanse pickled, pabst banjo 90's af pour-over celiac. Photo booth bushwick iPhone irony four loko. Deep v gochujang bitters affogato VHS. Swag farm-to-table ramps beard offal mlkshk. Yr jianbing vape vexillologist wolf. Tofu raclette heirloom, poutine tilde prism vice slow-carb activated charcoal flexitarian gastropub post-ironic. Banh mi you probably haven't heard of them seitan, enamel pin cronut raw denim helvetica chicharrones. Blog bitters shoreditch pinterest. Occupy snackwave pitchfork try-hard, slow-carb put a bird on it man bun small batch fam williamsburg dreamcatcher. Tbh crucifix chicharrones messenger bag vice, salvia pop-up mustache typewriter snackwave af banjo. Blog flexitarian air plant gluten-free vinyl, messenger bag kickstarter pork belly mustache 8-bit lyft knausgaard truffaut. Affogato tattooed try-hard ethical. You probably haven't heard of them affogato +1, man braid waistcoat man bun freegan. Man bun XOXO +1, williamsburg slow-carb skateboard direct trade roof party. Lumbersexual selfies tilde, typewriter gluten-free intelligentsia pop-up."
   }
 },
@@ -18,37 +18,43 @@
 
 {
   "blog": {
-    "image": "./assets/images/blog/music/download-1.jpg"
+    "image": "./assets/images/blog/music/download-1.jpg",
+    "title": "3"
   }
 },
 
 {
   "blog": {
-    "image": "./assets/images/blog/anatomy/download-1.png"
+    "image": "./assets/images/blog/anatomy/download-1.png",
+    "title": 4
   }
 },
 
 {
   "blog": {
-    "image": "./assets/images/blog/invigorating/download-1.jpg"
+    "image": "./assets/images/blog/invigorating/download-1.jpg",
+    "title": 5
   }
 },
 
 {
   "blog": {
-    "image": "./assets/images/blog/new-js/download.jpg"
+    "image": "./assets/images/blog/new-js/download.jpg",
+    "title": 6
   }
 },
 
 {
   "blog": {
-    "image": "./assets/images/blog/flexible-working/download.jpg"
+    "image": "./assets/images/blog/flexible-working/download.jpg",
+    "title": 7
   }
 },
 
 {
   "blog": {
-    "image": "./assets/images/blog/ie8/download.png"
+    "image": "./assets/images/blog/ie8/download.png",
+    "title": 8
   }
 }
 

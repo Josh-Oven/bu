@@ -37,39 +37,31 @@ angular.module('bu').controller('mainCtrl', function ($scope, $stateParams, main
 
   $scope.title = $stateParams.title;
 
-  $scope.deltaData;
-
-  console.log('deltaData: ', $scope.deltaData);
-
   $scope.getData = function () {
     return mainService.getData().then(function (response) {
-      console.log(response);
+      // console.log(response)
       $scope.blogData = response;
     });
   };
 
   $scope.getData();
 
-  $scope.colorC;
+  $scope.allBlogs;
 
-  $scope.readColor;
-
-  $scope.colorChange = function () {
-
-    return function () {
-
-      if ($scope.mainIf == false) {
-        $scope.readColor = { 'background': '#383C3E' };
-      } else if ($scope.mainIf == true) {
-        $scope.readColor = { 'background': '#1B1E1F' };
-      }
-      return $scope.readColor;
-    };
+  $scope.getBlogs = function () {
+    mainService.getAllBlogs().then(function (response) {
+      $scope.allBlogs = response;
+      console.log('blogsArray: ', $scope.blogsArray);
+    });
   };
 
-  console.log($scope.readColor);
+  $scope.getBlogs();
 
-  // $scope.blogData;
+  $scope.title = $stateParams.title;
+
+  console.log($scope.title);
+
+  // $scope.getBlogItem = mainService.
 });
 'use strict';
 
@@ -77,7 +69,14 @@ angular.module('bu').service('mainService', function ($http) {
 
   this.getData = function () {
     return $http.get('./storage.json').then(function (response) {
-      console.log(response.data);
+      // console.log(response.data)
+      return response.data;
+    });
+  };
+
+  this.getAllBlogs = function () {
+    return $http.get('/getAllBlogs').then(function (response) {
+      // console.log('data base blogs', response.data)
       return response.data;
     });
   };
@@ -90,7 +89,20 @@ angular.module('bu').service('mainService', function ($http) {
 "use strict";
 'use strict';
 
-angular.module('bu').controller('quillCtrl', function ($scope, $stateParams, quillService) {
+angular.module('bu').controller('quillCtrl', function ($scope, $stateParams, quillService, mainService, $http) {
+
+  $scope.deltaData;
+
+  $scope.quillContent = quill.container.firstChild.innerHTML.toString();
+
+  console.log('quill content', $scope.quillContent);
+
+  $scope.submit = function () {
+
+    $scope.data = $scope.quilllContent;
+
+    return $http.post('/postBlogText', $scope.data);
+  };
 
   // $scope.title = $stateParams.title
   //
@@ -100,11 +112,18 @@ angular.module('bu').controller('quillCtrl', function ($scope, $stateParams, qui
   //   $scope.blogItem = response;
   //   console.log($scope.blogItem)
   // })
-
 });
 'use strict';
 
 angular.module('bu').service('quillService', function ($http) {
+
+  // this.quillContent = quillCtrl.submit();
+
+  // this.postBlog = () => {
+  //   return $http.post('/postBlogText').then( () => {
+  //
+  //   })
+  // }
 
   // this.getBlog = (title) => {
   //   return $http.get('../storage.json/' + title).then( (response) => {

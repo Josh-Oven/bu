@@ -4,38 +4,30 @@ $scope.mainIf = false;
 
 $scope.title = $stateParams.title;
 
-$scope.deltaData
-
-console.log('deltaData: ', $scope.deltaData)
-
 $scope.getData = () => {
   return mainService.getData().then( (response) => {
-    console.log(response)
+    // console.log(response)
     $scope.blogData = response;
   })
 }
 
 $scope.getData();
 
-$scope.colorC;
+$scope.allBlogs;
 
-$scope.readColor;
-
-$scope.colorChange = () => {
-
-  return () => {
-
-    if ($scope.mainIf == false){
-      $scope.readColor = {'background': '#383C3E'};
-    } else if($scope.mainIf == true){
-      $scope.readColor ={'background': '#1B1E1F'}
-    }
-    return $scope.readColor
-  }
+$scope.getBlogs = () => {
+  mainService.getAllBlogs().then( (response) => {
+    $scope.allBlogs = response;
+    console.log('blogsArray: ', $scope.blogsArray)
+  })
 }
 
-console.log($scope.readColor)
+$scope.getBlogs();
 
-// $scope.blogData;
+$scope.title = $stateParams.title
+
+console.log($scope.title)
+
+$scope.getBlogItem = mainService.
 
 })
