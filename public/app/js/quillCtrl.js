@@ -6,9 +6,9 @@ $scope.quillContent = quill.container.firstChild.innerHTML.toString();
 
 console.log('quill content', $scope.quillContent)
 
-$scope.submit = () => {
+$scope.quillSubmit = () => {
 
-  $scope.data = $scope.quilllContent;
+  $scope.data = $scope.message;
 
     return $http.post('/postBlogText', $scope.data)
 }
