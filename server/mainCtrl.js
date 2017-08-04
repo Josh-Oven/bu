@@ -16,16 +16,3 @@ module.exports = {
   }
 
 }
-
-
-
-
-
-    // endpoint function example //
-
-// getBlogItem: (req, res, next) => {
-//   let title = req.params.blogTitle;
-//   db.getBlogItem( () => {
-//
-//   })
-// }
